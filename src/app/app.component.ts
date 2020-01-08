@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'orbit-report';
   sourceList : Satellite[];
   displayList : Satellite[];
+  typeCount = 0;
 
   constructor() {
     this.sourceList = [];
@@ -44,4 +45,12 @@ export class AppComponent {
     }
     this.displayList = matchingSatellites;
  }
+ displayCount(searchTerm: string): void{
+  for (let i = 0; i < this.sourceList.length; i++){
+  if (this.sourceList[i].type.toLowerCase() == searchTerm.toLowerCase()){
+    this.typeCount ++;
+    }
+  }
+}
+
 }
